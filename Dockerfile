@@ -15,6 +15,7 @@ COPY . .
 # Set fake env for build time prisma generation
 ENV DATABASE_URL="file:./dev.db"
 RUN npx prisma generate
+RUN npx prisma db push
 RUN npm run build
 
 # Production image, copy all the files and run next
